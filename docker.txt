@@ -1,0 +1,17 @@
+# Single stage docker file:
+
+# Use OpenJDK 17 alpine base image
+FROM OpenJDK:17-jdk-alpine
+
+# set the working directory
+WORKDIR /usr/src/app
+
+# Copy built jar file into the container
+COPY target/simple-java-app-1.0.jar simple-java-app.jar
+
+# Expose port 8080
+EXPOSE 8080
+
+# Run the application
+CMD ["java", "-jar", "simple-java-app.jar"]
+
